@@ -8,6 +8,14 @@ and this library adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Added
 
+- `WcashNetwork` publishes metadata-only identity profiles for Wcash Testnet and Regtest: their
+  frozen genesis hashes, transaction branch IDs, Ironwood activation height, compact-block server
+  and node names, versioned storage namespaces, test ticker, and address prefixes. The two Wcash
+  networks currently share the compact server's inherited `test` chain name, so future native
+  integration must attest genesis and branch identity. Wcash Mainnet is intentionally absent until
+  its consensus identity is frozen. This type cannot yet be passed to `Initializer`, `Synchronizer`,
+  or the Rust backend.
+
 - `ZcashTransaction.Overview.ZIP318Kind.canonicalCrossingPayment`: a canonical pool crossing that
   pays a third party. It has the same on-chain shape as a migration transfer but is not a migration
   this account made; a raw value of 4 previously decoded as `notClassified`. A `switch` over
